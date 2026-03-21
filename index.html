@@ -19,46 +19,39 @@
 
 
  <header>
-         <nav class="navbar">
-  <div class="logo"><img src="images/46f1ed0da1faed43a5b19c7b7473af98.jpg" alt=""></div>
+  <div class="logo">
+    <img src="images/Elegant Paulina Fashion logo design.png" alt="Logo">
+  </div>
 
- 
-  <input type="checkbox" id="menu-toggle">
-
-
-  <label for="menu-toggle" class="hamburger">
-    ☰
-  </label>
-
-
-  <label for="menu-toggle" class="close">
-    ✕
-  </label>
-
-
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#page">About</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li class="dropdown">
-  <a href="#">Categories ▾</a>
-
-  <ul class="dropdown-menu">
-    <li><a href="#">Men</a></li>
-    <li><a href="#">Women</a></li>
-    <li><a href="#">Children</a></li>
-  </ul>
-</li>
-
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="login.html" class="login-btn">Login</a></li>
- <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-
- <div class="search-box">
+   <div class="search-box2">
   <input type="text" id="search" placeholder="Search products...">
 </div>
-</nav>  
+
+  <!-- Hamburger toggle -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+  <!-- Overlay -->
+  <label for="menu-toggle" class="overlay"></label>
+
+  <!-- Navigation menu -->
+  <nav class="mobile-menu">
+    <ul>
+      <li><label for="menu-toggle"><a href="index.html">Home</a></label></li>
+      <li><label for="menu-toggle"><a href="shop.html">Shop</a></label></li>
+      <li><label for="menu-toggle"><a href="#page">About</a></label></li>
+
+      
+ <li><label for="menu-toggle"><a href="contact.html">Contact</a></label></li>
+ <li><label for="menu-toggle"><a href="login.html"  class="login-btn">Login</a></label></li>
+
+
   
+
+     <div class="search-box">
+  <input type="text" id="search" placeholder="Search products...">
+</div>
+  </nav>
 </header>
 
 <section class="hero">
