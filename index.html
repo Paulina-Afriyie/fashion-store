@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pulina'sFashion</title>
+
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+ 
+
+
+ <header>
+         <nav class="navbar">
+  <div class="logo"><img src="images/46f1ed0da1faed43a5b19c7b7473af98.jpg" alt=""></div>
+
+ 
+  <input type="checkbox" id="menu-toggle">
+
+
+  <label for="menu-toggle" class="hamburger">
+    ☰
+  </label>
+
+
+  <label for="menu-toggle" class="close">
+    ✕
+  </label>
+
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#page">About</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li class="dropdown">
+  <a href="#">Categories ▾</a>
+
+  <ul class="dropdown-menu">
+    <li><a href="#">Men</a></li>
+    <li><a href="#">Women</a></li>
+    <li><a href="#">Children</a></li>
+  </ul>
+</li>
+
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="login.html" class="login-btn">Login</a></li>
+ <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+
+ <div class="search-box">
+  <input type="text" id="search" placeholder="Search products...">
+</div>
+</nav>  
+  
+</header>
+
+<section class="hero">
+<h1>Elevate Your Style</h1>
+<p>Discover the latest trends and elevate your fashion game with our curated collection.</p>
+<a href="shop.html" class="btn">Shop Now</a>
+</section>
+
+
+<section class="page" id="page">
+
+
+<div class="about-content">
+
+<h1>About Paulina's Fashion</h1>
+
+<p>
+Paulina's Fashion is a modern fashion brand dedicated to delivering stylish,
+high-quality, and affordable clothing for both men and women. We believe
+fashion is more than just clothing — it is a way to express identity,
+confidence, and creativity.
+</p>
+
+<p>
+Since our establishment, we have focused on bringing the latest trends
+to our customers while maintaining comfort and quality. Our collections
+are carefully selected to meet the needs of fashion lovers who want to
+stand out.
+</p>
+
+</div>
+
+<div class="about-boxes">
+
+<div class="box">
+<h3>Our Mission</h3>
+<p>
+To provide trendy and affordable fashion that empowers individuals
+to express themselves confidently.
+</p>
+</div>
+
+<div class="box">
+<h3>Our Vision</h3>
+<p>
+To become a leading fashion brand known for quality, style,
+and customer satisfaction worldwide.
+</p>
+</div>
+
+</div>
+
+<div class="why-us">
+
+<h2>Why Choose Us</h2>
+
+<ul>
+<li>✔ High-quality materials</li>
+<li>✔ Affordable prices</li>
+<li>✔ Latest fashion trends</li>
+<li>✔ Excellent customer service</li>
+<li>✔ Fast delivery</li>
+</ul>
+
+</div>
+
+
+<div class="team">
+
+<h2>Our Team</h2>
+
+<div class="team-grid">
+
+<div class="member">
+<h4>CEO</h4>
+<p>Founder of Paulina's Fashion</p>
+</div>
+
+<div class="member">
+<h4>Designer</h4>
+<p>Creative Fashion Expert</p>
+</div>
+
+<div class="member">
+<h4>Manager</h4>
+<p>Customer Relations</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="featured">
+<h2>Trending Now</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/ladies we.jpg" alt="This is ladies wear">
+<h3>ladies tops</h3>
+<p>$45</p>
+</div>
+
+<div class="card">
+ <img src="images/men shirt.jpg" alt="This is men shirt">
+<h3>Men shirts</h3>
+<p>$60</p>
+</div>
+
+<div class="card">
+<img src="images/pink dress.jpg" alt="this is pink dress">
+<h3>Ladies Gown</h3>
+<p>$70</p>
+</div>
+
+<div class="card">
+<img src="images/trousres.jpg" alt="this is trousers">
+<h3>Trousers</h3>
+<p>$70</p>
+</div>
+
+<div class="card">
+  <img src="images/654f9db118bbdaa562b5829625c13094.jpg" alt="sneakers">
+<h3>Sneakers</h3>
+<p>$70</p>
+</div>
+
+
+<div class="card">
+ <img src="images/women brown dress.jpg" alt="office dress">
+<h3>Office Dress</h3>
+<p>$70</p>
+</div>
+
+
+<div class="card">
+<img src="images/dress.jpg" alt="ladies gown">
+<h3>African Dress</h3>
+<p>$70</p>
+</div>
+
+
+<div class="card">
+<img src="images/short.jpg" alt="shorts skirts">
+<h3>Short skirts</h3>
+<p>$70</p>
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+
+    <div class="footer-box">
+      <h2 class="logo">FASHION</h2>
+      <p>Modern fashion for bold and confident individuals.</p>
+    </div>
+
+  
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="index2.html">Shop</a>
+      <a href="#page">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+   
+    <div class="footer-box">
+      <h3>Support</h3>
+      <a href="#">FAQs</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+   
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>Email: paulinafaulina@gmail.com</p>
+      <p>Phone: +233 53 014 4668</p>
+      <p>Location: Kumasi, Ghana</p>
+
+      <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank">
+          <img src="images/Facebook.jpg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <img src="images/intagram.jpg" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank">
+          <img src="images/Tiktok.jpg" alt="Tiktok">
+        </a>
+      </div>
+    </div>
+   
+    
+  </div>
+
+
+  <div class="footer-bottom">
+    <p>© 2026 Fashion Store | All Rights Reserved</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>shop</title>
+<link rel="stylesheet" href="index.css">
+
+<script src="index.js"></script>
+</head>
+
+<body>
+
+
+
+<header>
+         <nav class="navbar">
+  <div class="logo"><img src="images/46f1ed0da1faed43a5b19c7b7473af98.jpg" alt=""></div>
+
+ 
+  <input type="checkbox" id="menu-toggle">
+
+
+  <label for="menu-toggle" class="hamburger">
+    ☰
+  </label>
+
+
+  <label for="menu-toggle" class="close">
+    ✕
+  </label>
+
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+   
+    <li><a href="shop.html">Shop</a></li>
+ 
+ <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+
+ <div class="search-box">
+  <input type="text" id="search" placeholder="Search products...">
+</div>
+</nav>  
+  
+</header>
+
+<p><a href="index.html" class="back">back to home</a></p>
+<section class="page">
+<h1>Shop Now</h1>
+
+<div class="grid">
+
+<div class="card">
+  <img src="images/ashirts.jpg" alt="men shirts">
+<h3>T-Shirt</h3>
+<p>$20</p>
+<button onclick="addToCart('T-Shirt',20)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/jacket.jpg" alt="men jacket">
+<h3>Jacket</h3>
+<p>$45</p>
+<button onclick="addToCart('Jacket',45)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/dress.jpg" alt="ladies dress">
+<h3>Dress</h3>
+<p>$60</p>
+<button onclick="addToCart('Dress',60)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/shoes.jpg" alt="shoes">
+<h3>Shoes</h3>
+<p>$70</p>
+<button onclick="addToCart('Shoes',70)">Add to Cart</button>
+</div>
+
+
+<div class="card">
+  <img src="images/top and shirts.jpg" alt="top and shirts">
+<h3>Top and Shirts</h3>
+<p>$110</p>
+<button onclick="addToCart('Top and Shirts',70)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/children .jpg" alt="children clothes">
+<h3>Children Clothes</h3>
+<p>$50</p>
+<button onclick="addToCart('Children Clothes',70)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/Kids gown.jpg" alt="kids gown">
+<h3>Kids Gown </h3>
+<p>$80</p>
+<button onclick="addToCart('Kids Gown',70)">Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="images/party dress.jpg" alt="party dress">
+<h3>Party Dress </h3>
+<p>$170</p>
+<button onclick="addToCart('Party Dress',70)">Add to Cart</button>
+</div>
+
+
+
+
+
+
+</div>
+</section>
+
+
+<div class="cart" id="cart">
+<h2>Your Cart</h2>
+<ul id="cart-items"></ul>
+<p>Total: $<span id="total">0</span></p>
+<button onclick="clearCart()">Clear Cart</button>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
