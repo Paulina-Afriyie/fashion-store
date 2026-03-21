@@ -101,9 +101,15 @@ bottom: -12%;
 
 
 .page2{
-    padding:5px;
+   padding:5px;
    text-align:center;
-   background-color: rgb(234, 238, 237);
+   background-color: rgb(178, 189, 186);
+}
+
+.page3{
+   padding:5px;
+   text-align:center;
+   background-color: rgb(178, 189, 186);
 }
 
 
@@ -779,9 +785,7 @@ header{
   padding: 10px 10px;
 }
 
-.page2{
 
-}
 
 
 
