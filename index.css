@@ -40,7 +40,7 @@ header {
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 15px 20px;
   background-color: #161616;
   position: relative;
   z-index: 1000;
@@ -100,7 +100,11 @@ bottom: -12%;
 }
 
 
-
+.page2{
+    padding:5px;
+   text-align:center;
+   background-color: rgb(234, 238, 237);
+}
 
 
 
@@ -771,7 +775,13 @@ padding: 30px;
 }
 
 
+header{
+  padding: 10px 10px;
+}
 
+.page2{
+
+}
 
 
 
