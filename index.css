@@ -13,13 +13,6 @@ font-family:'Poppins', sans-serif ;
 }
 
 
-.search-box2 {
-  margin-left: 20px;
-  position: relative;
-  left: 1vw;
-  display: none;
-  
-}
 
 
 
@@ -778,24 +771,7 @@ padding: 30px;
 }
 
 
-.search-box2 {
-  margin-left: 20px;
-  position: relative;
-  left: -2vw;
-  display: block;
-  
-}
 
-.search-box2 input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  outline: none;
-}
-
-.search-box2 input:focus {
-  border-color: black;
-}
 
 
 
