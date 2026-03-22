@@ -428,7 +428,7 @@ height: 100vh;
 
 .login-image{
 flex: 1;
-background: url('images/jacket.jpg') center/cover no-repeat;
+background: url('images/backgroup.jpg') center/cover no-repeat;
 color: white;
 display: flex;
 flex-direction: column;
@@ -451,6 +451,8 @@ background: rgba(0,0,0,0.5);
 .login-image p{
 position: relative;
 z-index: 2;
+
+
 }
 
 
@@ -575,6 +577,7 @@ text-decoration: none;
     border-top: 1px solid #333;
     padding-top: 15px;
     font-size: 14px;
+    
 }
 
 
@@ -599,17 +602,6 @@ text-decoration: none;
 
 
 
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: black;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  opacity: 0.9;
-  z-index: 1000;
-}
 
 
  
