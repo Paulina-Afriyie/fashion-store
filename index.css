@@ -19,7 +19,7 @@ font-family:'Poppins', sans-serif ;
 .search-box {
   margin-left: 20px;
   position: relative;
-  left: -1vw;
+  
   
 }
 
@@ -28,10 +28,28 @@ font-family:'Poppins', sans-serif ;
   border: 1px solid #ccc;
   border-radius: 10px;
   outline: none;
+  width: 500px;
 }
 
 .search-box input:focus {
   border-color: black;
+}
+
+.search-box button {
+  position: absolute;
+  right: 5px;
+  top: 20%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-box button img {
+  width: 18px;  /* adjust size */
+  height: 18px;
+  font-weight: bolder;
 }
 
 
@@ -213,6 +231,16 @@ font-size:60px;
 }
 
 
+.toast{
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #333;
+color: #fff;
+padding: 10px 20px;
+border-radius: 5px;
+}
+
 .hero::before{
 content: "";
 position: absolute;
@@ -285,8 +313,7 @@ border-radius:10px;
 }
 
 .card:hover{
-transform:scale(1.05);
- transform:translateY(-5px);
+transform: scale(1.05) translateY(-5px);
 }
 
 
@@ -769,7 +796,16 @@ left: 0;
 }
 
 .search-box{
-  display: none;
+  display: block;
+  
+}
+
+.search-box input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+ width: 100%;
 }
 
  /* CONTACT PAGE RESPONSIVE */

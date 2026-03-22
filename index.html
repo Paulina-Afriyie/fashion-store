@@ -7,7 +7,7 @@
 <title>Pulina's Collection</title>
 
 <link rel="stylesheet" href="index.css">
-<script src="index.js"></script>
+<script src="index.js" defer></script>
 
 
 
@@ -24,7 +24,10 @@
   </div>
 
    
-
+ <div class="search-box">
+  <input type="text" id="search" placeholder="Search products...">
+   <button id="search-btn"><img src="images/search icon.jpg" alt="Search" /></button>
+</div>
 
   <input type="checkbox" id="menu-toggle">
   <label for="menu-toggle" class="hamburger">&#9776;</label>
@@ -34,27 +37,25 @@
 
   <nav class="mobile-menu">
     <ul>
-      <li><label for="menu-toggle"><a href="index.html" target="_blank">Home</a></label></li>
-      <li><label for="menu-toggle"><a href="shop.html" target="_blank">Shop</a></label></li>
-      <li><label for="menu-toggle"><a href="#page" target="_blank">About</a></label></li>
+      <li><label for="menu-toggle"><a href="index.html">Home</a></label></li>
+      <li><label for="menu-toggle"><a href="shop.html">Shop</a></label></li>
+      <li><label for="menu-toggle"><a href="#page">About</a></label></li>
 
       
- <li><label for="menu-toggle"><a href="contact.html" target="_blank">Contact</a></label></li>
- <li><label for="menu-toggle"><a href="login.html"  class="login-btn" target="_blank">Login</a></label></li>
+ <li><label for="menu-toggle"><a href="contact.html">Contact</a></label></li>
+ <li><label for="menu-toggle"><a href="login.html"  class="login-btn">Login</a></label></li>
 
 
   
 
-     <div class="search-box">
-  <input type="text" id="search" placeholder="Search products...">
-</div>
+    
   </nav>
 </header>
 
 <section class="hero">
 <h1>Elevate Your Style</h1>
 <p>Discover the latest trends and elevate your fashion game with our curated collection.</p>
-<a href="shop.html" class="btn" target="_blank">Shop Now</a>
+<a href="shop.html" class="btn">View Products</a>
 </section>
 
 
