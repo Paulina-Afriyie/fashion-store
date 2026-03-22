@@ -67,7 +67,7 @@ header {
 }
 
 .mobile-menu ul :hover{
-  color: pink;
+  color: rgb(235, 160, 172);
   transform: translateY(-1px);
 
 }
