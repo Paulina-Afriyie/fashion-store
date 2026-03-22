@@ -66,6 +66,13 @@ header {
 
 }
 
+.mobile-menu ul :hover{
+  color: pink;
+  transform: translateY(-1px);
+
+}
+
+
 .mobile-menu ul {
   list-style: none;
   margin: 0;
@@ -225,13 +232,14 @@ z-index: 2;
 
 
 .btn{
-background:#e91e63;
+background:#f03473;
 padding:12px 25px;
 color:white;
 text-decoration:none;
 margin-top:15px;
 border-radius:5px;
 }
+
 
 
 
@@ -251,6 +259,18 @@ text-align:center;
 transition:0.3s;
 
 }
+
+
+.card h3{
+ 
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-style: italic;
+
+
+}
+
+
 
 .card img{
 width:100%;
@@ -658,6 +678,7 @@ border-radius:10px;
   .hamburger {
     display: block;
     color: white;
+    font-weight: bolder;
   }
 
   /* Overlay */
