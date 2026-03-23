@@ -130,14 +130,22 @@ bottom: -12%;
 .page2{
    padding:5px;
    text-align:center;
-   background-color: rgb(178, 189, 186);
+   background-color: rgb(252, 253, 253);
 }
 
 .page3{
    padding:5px;
    text-align:center;
-   background-color: rgb(178, 189, 186);
+   background-color: rgb(224, 227, 231);
 }
+
+.page4{
+   padding:5px;
+   text-align:center;
+   background-color: rgb(241, 243, 245);
+}
+
+
 
 
 
@@ -237,7 +245,7 @@ font-size:60px;
 position: fixed;
 bottom: 20px;
 right: 20px;
-background: #333;
+background: #d30e0e;
 color: #fff;
 padding: 10px 20px;
 border-radius: 5px;
@@ -296,8 +304,14 @@ transition:0.3s;
   font-family: 'Times New Roman', Times, serif;
   font-size: 15px;
   font-style: italic;
+}
 
-
+ h4 a{
+  text-decoration: none;
+  background-color: #df6294;
+  padding: 12px 10px;
+  border-radius: 10px;
+  color: white;
 }
 
 
