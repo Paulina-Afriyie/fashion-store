@@ -1,53 +1,96 @@
+// ============================
+// GLOBAL STATE
+// ============================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ----------------------------
-// LOGIN FORM HANDLER
-// ----------------------------
-const loginForm = document.getElementById("loginForm");
 
-if (loginForm) {
-  loginForm.addEventListener("submit", function(e) {
+// ============================
+// LOGIN SYSTEM
+// ============================
+function handleLogin() {
+  const form = document.getElementById("loginForm");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Set login state
-    localStorage.setItem("isLoggedIn", "true");
+    const email = form.querySelector("input[name='email']").value;
+    const password = form.querySelector("input[name='password']").value;
 
-    alert("Login successful!");
-    window.location.href = "shop.html"; // redirect to shop page
+    if (email && password) {
+      localStorage.setItem("isLoggedIn", "true");
+      alert("Login successful!");
+      window.location.href = "shop.html";
+    } else {
+      alert("Please fill in all fields");
+    }
   });
 }
 
-// ----------------------------
-// CART HANDLER WITH LOGIN CHECK
-// ----------------------------
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// ============================
+// LOGIN STATE & LOGOUT
+// ============================
+function isLoggedIn() {
+  return localStorage.getItem("isLoggedIn") === "true";
+}
+
+function checkLoginState() {
+  const loginLinks = document.querySelectorAll(".login-btn");
+  const logoutBtn = document.getElementById("logout-btn");
+
+  if (isLoggedIn()) {
+    loginLinks.forEach(link => link.style.display = "none");
+    if (logoutBtn) logoutBtn.style.display = "block";
+  } else {
+    loginLinks.forEach(link => link.style.display = "block");
+    if (logoutBtn) logoutBtn.style.display = "none";
+  }
+}
+
+function handleLogout() {
+  const logoutBtn = document.getElementById("logout-btn");
+  if (!logoutBtn) return;
+
+  logoutBtn.addEventListener("click", function () {
+    localStorage.removeItem("isLoggedIn");
+    alert("You have been logged out.");
+    window.location.href = "index.html";
+  });
+}
+
+
+// ============================
+// CART SYSTEM
+// ============================
 function addToCart(name, price) {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-  if (!isLoggedIn) {
-    alert("Please login first before you can purchase products.");
-    window.location.href = "login.html"; // redirect to login page
+  if (!isLoggedIn()) {
+    alert("Please login first before purchasing.");
+    window.location.href = "login.html";
     return;
   }
 
-  const existingItem = cart.find(item => item.name === name);
+  const item = cart.find(p => p.name === name);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
+  if (item) {
+    item.quantity++;
   } else {
     cart.push({ name, price, quantity: 1 });
   }
 
   saveCart();
   updateCart();
-  showNotification(name + " added to cart");
+  showNotification(`${name} added to cart`);
 }
 
-// ----------------------------
-// CART FUNCTIONS
-// ----------------------------
 function removeItem(index) {
   cart.splice(index, 1);
+  saveCart();
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
   saveCart();
   updateCart();
 }
@@ -65,117 +108,83 @@ function updateCart() {
 
   cartItems.innerHTML = "";
   let total = 0;
+  let totalItems = 0;
 
   cart.forEach((item, index) => {
     total += item.price * item.quantity;
+    totalItems += item.quantity;
 
-    cartItems.innerHTML += `
-      <li>
-        ${item.name} - $${item.price} x ${item.quantity}
-        <button onclick="removeItem(${index})">❌</button>
-      </li>
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item.name} - $${item.price} x ${item.quantity}
+      <button onclick="removeItem(${index})">❌</button>
     `;
+    cartItems.appendChild(li);
   });
 
-  totalDisplay.textContent = "$" + total;
-  count.textContent = cart.length;
+  totalDisplay.textContent = total;
+  count.textContent = totalItems;
 }
 
-// ----------------------------
-// NOTIFICATIONS
-// ----------------------------
-function showNotification(message) {
-  const notification = document.createElement("div");
-  notification.classList.add("toast");
-  notification.textContent = message;
 
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.remove();
-  }, 2000);
-}
-
-// ----------------------------
-// SEARCH FUNCTIONALITY
-// ----------------------------
+// ============================
+// SEARCH SYSTEM
+// ============================
 function searchProducts() {
-  const input = document.getElementById("search").value.toLowerCase();
+  const input = document.getElementById("search");
+  if (!input) return;
+
+  const value = input.value.toLowerCase();
   const products = document.querySelectorAll(".card");
 
   products.forEach(product => {
     const text = product.textContent.toLowerCase();
-
-    if (text.includes(input)) {
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
+    product.style.display = text.includes(value) ? "" : "none";
   });
 }
 
 function setupSearch() {
-  const searchInput = document.getElementById("search");
+  const input = document.getElementById("search");
+  const btn = document.getElementById("search-btn");
 
-  if (!searchInput) return;
+  if (!input) return;
 
-  searchInput.addEventListener("keypress", function (e) {
+  input.addEventListener("input", searchProducts);
+
+  input.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
-      e.preventDefault(); 
+      e.preventDefault();
       searchProducts();
     }
   });
 
-  searchInput.addEventListener("input", function () {
-    searchProducts();
-  });
-}
-
-// Handle search icon click
-const searchBtn = document.getElementById("search-btn");
-
-if (searchBtn) {
-  searchBtn.addEventListener("click", function() {
-    searchProducts(); // calls your existing function
-  });
-}
-
-// ----------------------------
-// LOGOUT BUTTON HANDLER
-// ----------------------------
-const logoutBtn = document.getElementById("logout-btn");
-
-function checkLoginState() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  
-  if (logoutBtn) {
-    logoutBtn.style.display = isLoggedIn ? "block" : "none";
+  if (btn) {
+    btn.addEventListener("click", searchProducts);
   }
-
-  const loginLinks = document.querySelectorAll(".login-btn");
-  loginLinks.forEach(link => {
-    if (isLoggedIn) {
-      link.style.display = "none"; // hide login link if logged in
-    } else {
-      link.style.display = "block"; // show login link if not logged in
-    }
-  });
 }
 
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", function() {
-    localStorage.removeItem("isLoggedIn"); // clear login state
-    alert("You have been logged out.");
-    checkLoginState(); // update header
-    window.location.href = "index.html"; // optional: redirect to home
-  });
+
+// ============================
+// NOTIFICATION SYSTEM
+// ============================
+function showNotification(message) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 2000);
 }
 
-// ----------------------------
-// INITIALIZE ON PAGE LOAD
-// ----------------------------
-window.onload = function () {
-  updateCart();
+
+// ============================
+// INITIALIZATION
+// ============================
+document.addEventListener("DOMContentLoaded", function () {
+  handleLogin();
+  handleLogout();
   setupSearch();
+  updateCart();
   checkLoginState();
-};
+});

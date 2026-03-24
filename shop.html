@@ -41,8 +41,11 @@
       
  <li><label for="menu-toggle"><a href="contact.html" >Contact</a></label></li>
  <li><label for="menu-toggle"><a href="login.html"  class="login-btn" >Login</a></label></li>
- <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-    </ul>
+ <button id="logout-btn" class="login-btn" style="display:none;">
+    Logout
+  </button>
+<div class="cart-icon" onclick="toggleCart()"><a href="cart.html">🛒</a> <span id="cart-count">0</span></div>
+    
 
      
   </nav>
@@ -95,7 +98,7 @@
   <img src="images/children .jpg" alt="children clothes">
 <h3>Children Clothes</h3>
 <p>$50</p>
-<button onclick="addToCart('Children Clothes',70)">Add to Cart</button>
+<button onclick="addToCart('Children Clothes',50)">Add to Cart</button>
 </div>
 
 <div class="card">

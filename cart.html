@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Your Shop</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <header>
+    <a href="shop.html">← Continue Shopping</a>
+   
+    <div class="cart-icon" onclick="toggleCart()"><a href="cart.html">🛒</a> <span id="cart-count">0</span></div>
+  </header>
+
+  <main id="cart-container">
+    <h1>Your Cart</h1>
+    <ul id="cart-items"></ul>
+    <div id="cart-summary">
+  
+      <p>Total Price: $<span id="total">0</span></p>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
