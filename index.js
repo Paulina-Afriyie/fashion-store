@@ -188,3 +188,34 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCart();
   checkLoginState();
 });
+
+ // Sign-up logic using localStorage
+    const signForm = document.getElementById("signForm");
+
+    signForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = signForm.querySelector("input[name='name']").value;
+      const email = signForm.querySelector("input[name='email']").value;
+      const password = signForm.querySelector("input[name='password']").value;
+
+      if (!name || !email || !password) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      // Save user in localStorage
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      
+      // Check if email already exists
+      if (users.find(user => user.email === email)) {
+        alert("Email already registered. Please login.");
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Account created successfully! Please login.");
+      window.location.href = "login.html";
+    });
