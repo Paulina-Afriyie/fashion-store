@@ -1,9 +1,17 @@
 /* Global Styles */
+
+*{
+    box-sizing: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
 body {
-  font-family: Arial, sans-serif;
+
+  font-family:'Poppins', sans-serif ;
   background: #f4f4f4;
-  margin: 0;
-  padding: 0;
+  
 }
 
 header {
@@ -98,3 +106,7 @@ header a:hover {
 #checkout-btn:hover {
   background: #218838;
 }
+
+
+
+
