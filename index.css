@@ -357,7 +357,7 @@ border-radius: 10px;
 
 
 
-.cart{
+.cart {
 position:fixed;
 right:-300px;
 top:0;
@@ -367,6 +367,11 @@ background:white;
 padding:20px;
 box-shadow:-2px 0 5px rgba(0,0,0,0.3);
 transition:0.3s;
+}
+
+.cart-icon a{
+  color: white;
+  
 }
 
 .cart.active{
