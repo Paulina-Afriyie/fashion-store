@@ -5,6 +5,25 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // ============================
+// HELPER FUNCTIONS
+// ============================
+function isLoggedIn() {
+  return localStorage.getItem("isLoggedIn") === "true";
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function showNotification(message) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2000);
+}
+
+// ============================
 // LOGIN SYSTEM
 // ============================
 function handleLogin() {
@@ -14,68 +33,25 @@ function handleLogin() {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const email = form.querySelector("input[name='email']").value;
+    const email = form.querySelector("input[name='email']").value.trim().toLowerCase();
     const password = form.querySelector("input[name='password']").value;
-
-    if (!email || !password) {
-      alert("Please fill in all fields");
-      return;
-    }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(u => u.email === email && u.password === password);
 
     if (user) {
       localStorage.setItem("isLoggedIn", "true");
-      alert("Login successful!");
+      showNotification("Login successful!");
       window.location.href = "shop.html";
     } else {
-      alert("Invalid email or password");
+      alert("Invalid email or password.");
     }
   });
 }
 
 // ============================
-// SIGN-UP SYSTEM
+// LOGOUT & LOGIN STATE
 // ============================
-function handleSignUp() {
-  const signForm = document.getElementById("signForm");
-  if (!signForm) return;
-
-  signForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = signForm.querySelector("input[name='name']").value;
-    const email = signForm.querySelector("input[name='email']").value;
-    const password = signForm.querySelector("input[name='password']").value;
-
-    if (!name || !email || !password) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    if (users.find(user => user.email === email)) {
-      alert("Email already registered. Please login.");
-      return;
-    }
-
-    users.push({ name, email, password });
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Account created successfully! Please login.");
-    window.location.href = "login.html";
-  });
-}
-
-// ============================
-// LOGIN STATE & LOGOUT
-// ============================
-function isLoggedIn() {
-  return localStorage.getItem("isLoggedIn") === "true";
-}
-
 function checkLoginState() {
   const loginLinks = document.querySelectorAll(".login-btn");
   const logoutBtn = document.getElementById("logout-btn");
@@ -95,8 +71,42 @@ function handleLogout() {
 
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("isLoggedIn");
-    alert("You have been logged out.");
+    showNotification("You have been logged out.");
     window.location.href = "index.html";
+  });
+}
+
+// ============================
+// SIGN-UP SYSTEM
+// ============================
+function handleSignUp() {
+  const signForm = document.getElementById("signForm");
+  if (!signForm) return;
+
+  signForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = signForm.querySelector("input[name='name']").value.trim();
+    const email = signForm.querySelector("input[name='email']").value.trim().toLowerCase();
+    const password = signForm.querySelector("input[name='password']").value;
+
+    if (!name || !email || !password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.find(u => u.email === email)) {
+      alert("Email already registered. Please login.");
+      return;
+    }
+
+    users.push({ name, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created successfully! Please login.");
+    window.location.href = "login.html";
   });
 }
 
@@ -110,7 +120,7 @@ function addToCart(name, price) {
     return;
   }
 
-  const item = cart.find(p => p.name === name);
+  const item = cart.find(p => p.name.toLowerCase() === name.toLowerCase());
 
   if (item) {
     item.quantity++;
@@ -133,10 +143,6 @@ function clearCart() {
   cart = [];
   saveCart();
   updateCart();
-}
-
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function updateCart() {
@@ -190,7 +196,7 @@ function setupSearch() {
 
   input.addEventListener("input", searchProducts);
 
-  input.addEventListener("keypress", function (e) {
+  input.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
       e.preventDefault();
       searchProducts();
@@ -201,42 +207,13 @@ function setupSearch() {
 }
 
 // ============================
-// NOTIFICATION SYSTEM
-// ============================
-function showNotification(message) {
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2000);
-}
-
-// ============================
-// PASSWORD TOGGLE (LOGIN & SIGN-UP)
-// ============================
-function setupPasswordToggle() {
-  const toggles = document.querySelectorAll(".toggle-password");
-
-  toggles.forEach(toggle => {
-    const input = toggle.previousElementSibling;
-
-    toggle.addEventListener("click", () => {
-      const type = input.getAttribute("type") === "password" ? "text" : "password";
-      input.setAttribute("type", type);
-      toggle.classList.toggle("active");
-    });
-  });
-}
-
-// ============================
 // INITIALIZATION
 // ============================
 document.addEventListener("DOMContentLoaded", function () {
   handleLogin();
-  handleSignUp();
   handleLogout();
+  handleSignUp();
   setupSearch();
   updateCart();
   checkLoginState();
-  setupPasswordToggle();
 });

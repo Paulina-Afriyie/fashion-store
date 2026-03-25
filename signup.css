@@ -50,8 +50,6 @@ position: relative;
 z-index: 2;
 
 
-
-
 }
 /* Container for the form */
 .login-container {
@@ -128,36 +126,6 @@ color: black;
   text-decoration: underline;
 }
 
-.password-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding-right: 35px; /* space for the eye icon */
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
- top: -2px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #555;
-  user-select: none;
-  transition: color 0.3s;
-}
-
-.toggle-password:hover {
-  color: #c2185b; /* pink highlight */
-}
-
-.toggle-password.active {
-  color: black; /* green when password is visible */
-}
-
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .login-container {
@@ -180,7 +148,7 @@ flex-direction: column;
 height: 40vh;
 }
 
-.login-container {
+.login-form{
 padding: 30px;
 }
 
