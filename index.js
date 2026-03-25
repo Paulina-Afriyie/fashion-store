@@ -1,8 +1,8 @@
+
 // ============================
 // GLOBAL STATE
 // ============================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 
 // ============================
 // LOGIN SYSTEM
@@ -17,16 +17,57 @@ function handleLogin() {
     const email = form.querySelector("input[name='email']").value;
     const password = form.querySelector("input[name='password']").value;
 
-    if (email && password) {
+    if (!email || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
       localStorage.setItem("isLoggedIn", "true");
       alert("Login successful!");
       window.location.href = "shop.html";
     } else {
-      alert("Please fill in all fields");
+      alert("Invalid email or password");
     }
   });
 }
 
+// ============================
+// SIGN-UP SYSTEM
+// ============================
+function handleSignUp() {
+  const signForm = document.getElementById("signForm");
+  if (!signForm) return;
+
+  signForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = signForm.querySelector("input[name='name']").value;
+    const email = signForm.querySelector("input[name='email']").value;
+    const password = signForm.querySelector("input[name='password']").value;
+
+    if (!name || !email || !password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.find(user => user.email === email)) {
+      alert("Email already registered. Please login.");
+      return;
+    }
+
+    users.push({ name, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created successfully! Please login.");
+    window.location.href = "login.html";
+  });
+}
 
 // ============================
 // LOGIN STATE & LOGOUT
@@ -58,7 +99,6 @@ function handleLogout() {
     window.location.href = "index.html";
   });
 }
-
 
 // ============================
 // CART SYSTEM
@@ -126,7 +166,6 @@ function updateCart() {
   count.textContent = totalItems;
 }
 
-
 // ============================
 // SEARCH SYSTEM
 // ============================
@@ -158,11 +197,8 @@ function setupSearch() {
     }
   });
 
-  if (btn) {
-    btn.addEventListener("click", searchProducts);
-  }
+  if (btn) btn.addEventListener("click", searchProducts);
 }
-
 
 // ============================
 // NOTIFICATION SYSTEM
@@ -171,51 +207,36 @@ function showNotification(message) {
   const toast = document.createElement("div");
   toast.className = "toast";
   toast.textContent = message;
-
   document.body.appendChild(toast);
-
   setTimeout(() => toast.remove(), 2000);
 }
 
+// ============================
+// PASSWORD TOGGLE (LOGIN & SIGN-UP)
+// ============================
+function setupPasswordToggle() {
+  const toggles = document.querySelectorAll(".toggle-password");
+
+  toggles.forEach(toggle => {
+    const input = toggle.previousElementSibling;
+
+    toggle.addEventListener("click", () => {
+      const type = input.getAttribute("type") === "password" ? "text" : "password";
+      input.setAttribute("type", type);
+      toggle.classList.toggle("active");
+    });
+  });
+}
 
 // ============================
 // INITIALIZATION
 // ============================
 document.addEventListener("DOMContentLoaded", function () {
   handleLogin();
+  handleSignUp();
   handleLogout();
   setupSearch();
   updateCart();
   checkLoginState();
+  setupPasswordToggle();
 });
-
- // Sign-up logic using localStorage
-    const signForm = document.getElementById("signForm");
-
-    signForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const name = signForm.querySelector("input[name='name']").value;
-      const email = signForm.querySelector("input[name='email']").value;
-      const password = signForm.querySelector("input[name='password']").value;
-
-      if (!name || !email || !password) {
-        alert("Please fill all fields");
-        return;
-      }
-
-      // Save user in localStorage
-      let users = JSON.parse(localStorage.getItem("users")) || [];
-      
-      // Check if email already exists
-      if (users.find(user => user.email === email)) {
-        alert("Email already registered. Please login.");
-        return;
-      }
-
-      users.push({ name, email, password });
-      localStorage.setItem("users", JSON.stringify(users));
-
-      alert("Account created successfully! Please login.");
-      window.location.href = "login.html";
-    });
