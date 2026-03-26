@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Your Shop</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <header>
+    <a href="cart.html">← Back to Cart</a>
+  </header>
+
+  <main id="checkout-container">
+    <h1>Checkout</h1>
+
+    
+    <!-- Payment Form -->
+    <section id="payment-info">
+      <h2>Payment Information</h2>
+      <form>
+        <input type="text" id="card-name" placeholder="Name on Card" required>
+        <input type="text" id="card-number" placeholder="Card Number" required>
+        
+      </form>
+    </section>
+
+    <!-- Order Summary -->
+    <section id="order-summary">
+      <h2>Order Summary</h2>
+      <ul id="checkout-items"></ul>
+      <p>Total Price: $<span id="checkout-total">0</span></p>
+      <button id="place-order-btn">Place Order</button>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

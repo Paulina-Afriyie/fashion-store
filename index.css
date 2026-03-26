@@ -19,6 +19,7 @@ font-family:'Poppins', sans-serif ;
 .search-box {
   margin-left: 20px;
   position: relative;
+ 
   
   
 }
@@ -555,10 +556,11 @@ margin-top: 40px;
 
 .login-page{
 display: flex;
-height: 100vh;
+height: 90vh;
 
 
 }
+
 
 
 .login-image{
@@ -571,8 +573,21 @@ justify-content: center;
 align-items: center;
 text-align: center;
 position: relative;
+border-radius: 12px;
 }
 
+.arrow{
+position: absolute;
+top: -4vh;
+left: 7px;
+color: white;
+font-size: 40px;
+font-weight: bolder;
+}
+
+.arrow a{
+  text-decoration: none;
+}
 
 .login-image::before{
 content: "";
@@ -598,6 +613,9 @@ flex-direction: column;
 justify-content: center;
 padding: 40px 30px;
 background: #fff;
+border-radius: 12px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
 }
 
 .login-form h2{

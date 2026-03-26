@@ -1,4 +1,3 @@
-
 // ============================
 // GLOBAL STATE
 // ============================
@@ -168,7 +167,7 @@ function updateCart() {
     cartItems.appendChild(li);
   });
 
-  totalDisplay.textContent = total;
+  totalDisplay.textContent = total.toFixed(2);
   count.textContent = totalItems;
 }
 
@@ -207,6 +206,40 @@ function setupSearch() {
 }
 
 // ============================
+// CHECKOUT PAGE FUNCTIONS
+// ============================
+function loadCheckout() {
+  const checkoutItems = document.getElementById("checkout-items");
+  const checkoutTotal = document.getElementById("checkout-total");
+  const placeOrderBtn = document.getElementById("place-order-btn");
+
+  if (!checkoutItems || !checkoutTotal || !placeOrderBtn) return;
+
+  // Load items from cart
+  let total = 0;
+  checkoutItems.innerHTML = "";
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+    checkoutItems.appendChild(li);
+    total += item.price * item.quantity;
+  });
+
+  checkoutTotal.textContent = total.toFixed(2);
+
+  // Handle place order
+  placeOrderBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+    alert("Order placed successfully! Thank you for shopping with us.");
+    clearCart();
+    window.location.href = "shop.html";
+  });
+}
+
+// ============================
 // INITIALIZATION
 // ============================
 document.addEventListener("DOMContentLoaded", function () {
@@ -216,4 +249,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setupSearch();
   updateCart();
   checkLoginState();
+  loadCheckout(); // initialize checkout page if it exists
 });

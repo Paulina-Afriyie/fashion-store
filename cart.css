@@ -91,6 +91,13 @@ header a:hover {
   margin: 5px 0;
 }
 
+
+#checkout-btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
 #checkout-btn {
   margin-top: 15px;
   padding: 12px 25px;
@@ -105,6 +112,112 @@ header a:hover {
 
 #checkout-btn:hover {
   background: #218838;
+}
+
+
+/* Checkout Container */
+#checkout-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#checkout-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Sections */
+#shipping-info,
+#payment-info,
+#order-summary {
+  margin-bottom: 30px;
+}
+
+#shipping-info h2,
+#payment-info h2,
+#order-summary h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Forms */
+#checkout-form,
+#payment-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#checkout-form input,
+#payment-info input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Order Summary */
+#checkout-items {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+#checkout-items li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+/* Total & Button */
+#checkout-total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#place-order-btn {
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 18px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#place-order-btn:hover {
+  background: #218838;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #checkout-container {
+    padding: 15px 20px;
+  }
+
+  #checkout-items li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #cart-container {
+  max-width: 800px;
+  height: 200px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 }
 
 
