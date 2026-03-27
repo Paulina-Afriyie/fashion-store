@@ -6,6 +6,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // ============================
 // HELPER FUNCTIONS
 // ============================
+
 function isLoggedIn() {
   return localStorage.getItem("isLoggedIn") === "true";
 }
