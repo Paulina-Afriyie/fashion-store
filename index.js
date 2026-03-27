@@ -251,3 +251,26 @@ document.addEventListener("DOMContentLoaded", function () {
   checkLoginState();
   loadCheckout(); // initialize checkout page if it exists
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const megaLink = document.querySelector(".mega-dropdown > a");
+
+  if (megaLink) {
+    megaLink.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+
+        const parent = this.parentElement;
+
+        // Close others (clean UX)
+        document.querySelectorAll(".mega-dropdown").forEach(item => {
+          if (item !== parent) {
+            item.classList.remove("active");
+          }
+        });
+
+        parent.classList.toggle("active");
+      }
+    });
+  }
+});

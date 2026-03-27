@@ -13,6 +13,67 @@ font-family:'Poppins', sans-serif ;
 }
 
 
+/* MEGA MENU */
+.mega-dropdown {
+  position: relative;
+
+}
+
+/* Hidden by default */
+.mega-menu {
+  position: absolute;
+  right: 12vh;
+  top: 100%;
+  width: 200px;
+
+  background: rgb(22, 22, 22);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Show on hover (desktop) */
+.mega-dropdown:hover .mega-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Columns */
+.mega-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titles */
+.mega-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Links */
+.mega-column a {
+  text-decoration: none;
+
+  margin: 5px 0;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.mega-column a:hover {
+ 
+  padding-left: 5px;
+}
 
 
 
@@ -838,6 +899,10 @@ border-radius:10px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     transition: right 0.3s ease;
     z-index: 1001;
+   
+  overflow-y: auto;
+  max-height: 100vh;
+
   }
 
   #menu-toggle:checked ~ .mobile-menu {
@@ -940,6 +1005,70 @@ header{
   .team-card {
     padding: 20px;
   }
+
+@media (max-width: 768px) {
+  .mega-menu {
+    position: static;
+    width: 100%;
+    flex-direction: column;
+    box-shadow: none;
+    padding: 10px 0;
+    display: none;
+  }
+
+  .mega-dropdown.active .mega-menu {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+
+  /* Make dropdown full width */
+  .mega-menu {
+    position: static;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* Show when active */
+  .mega-dropdown.active .mega-menu {
+    display: block;
+  }
+
+  /* Category title (button look) */
+  .mega-dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Make columns look like simple list */
+  .mega-column {
+    padding-left: 10px;
+  }
+
+  .mega-column h4 {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #888;
+  }
+
+  .mega-column a {
+    padding: 8px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+}
+}
+
+
+
 }
 
 
