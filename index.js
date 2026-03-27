@@ -238,9 +238,8 @@ function loadCheckout() {
     clearCart();
     window.location.href = "shop.html";
   });
-}
 
-function getPaymentMethod() {
+  function getPaymentMethod() {
   const selected = document.querySelector('input[name="payment"]:checked');
 
   if (!selected) {
@@ -258,6 +257,9 @@ document.getElementById("place-order-btn").addEventListener("click", function ()
 
   alert("Order placed using: " + payment);
 });
+}
+
+
 
 // ============================
 // INITIALIZATION
