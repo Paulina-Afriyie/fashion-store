@@ -1078,8 +1078,8 @@ padding:10px;
 border-radius: 12px;
 width: 100px;
 color: white;
-align-items: center;
-justify-self: center;
+position: relative;
+left: 70px;
 
 }
 
