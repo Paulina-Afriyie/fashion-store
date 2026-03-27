@@ -1077,10 +1077,9 @@ background:#e91e63;
 padding:10px;
 border-radius: 12px;
 width: 100px;
-position: relative;
-left: 11.5vh;
 color: white;
-
+align-items: center;
+justify-self: center;
 
 }
 
