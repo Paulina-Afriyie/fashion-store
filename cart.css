@@ -131,13 +131,13 @@ header a:hover {
 }
 
 /* Sections */
-#shipping-info,
+
 #payment-info,
 #order-summary {
   margin-bottom: 30px;
 }
 
-#shipping-info h2,
+
 #payment-info h2,
 #order-summary h2 {
   margin-bottom: 15px;
@@ -211,7 +211,6 @@ header a:hover {
 
   #cart-container {
   max-width: 800px;
-  height: 200px;
   margin: 30px auto;
   background: #fff;
   padding: 20px 30px;
