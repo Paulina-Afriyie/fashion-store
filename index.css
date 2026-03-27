@@ -120,7 +120,7 @@ header {
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 20px 20px;
   background-color: #161616;
   position: relative;
   z-index: 1000;
@@ -399,14 +399,20 @@ z-index:1;
 
 .btn{
 background:#f03473;
-padding:12px 25px;
+padding:12px 20px;
 color:white;
 text-decoration:none;
 margin-top:15px;
 border-radius:5px;
 }
 
-
+.login-btn{
+background:#e91e63;
+padding:10px;
+border-radius: 10px;
+color: white;
+text-decoration: none;
+}
 
 
 
@@ -1006,7 +1012,7 @@ header{
     padding: 20px;
   }
 
-@media (max-width: 768px) {
+
   .mega-menu {
     position: static;
     width: 100%;
@@ -1020,7 +1026,7 @@ header{
     display: flex;
   }
 
-  @media (max-width: 768px) {
+
 
   /* Make dropdown full width */
   .mega-menu {
@@ -1064,12 +1070,25 @@ header{
     font-size: 15px;
     border-bottom: 1px solid #f2f2f2;
   }
+
+
+  .login-btn{
+background:#e91e63;
+padding:10px;
+border-radius: 12px;
+width: 100px;
+position: relative;
+left: 12vh;
+
+
 }
+
 }
 
 
 
-}
+
+
 
 
 
