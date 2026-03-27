@@ -240,6 +240,25 @@ function loadCheckout() {
   });
 }
 
+function getPaymentMethod() {
+  const selected = document.querySelector('input[name="payment"]:checked');
+
+  if (!selected) {
+    alert("Please select a payment method");
+    return null;
+  }
+
+  return selected.value;
+}
+
+// Place order button
+document.getElementById("place-order-btn").addEventListener("click", function () {
+  const payment = getPaymentMethod();
+  if (!payment) return;
+
+  alert("Order placed using: " + payment);
+});
+
 // ============================
 // INITIALIZATION
 // ============================

@@ -11,28 +11,62 @@
     <a href="cart.html">← Back to Cart</a>
   </header>
 
-  <main id="checkout-container">
-    <h1>Checkout</h1>
+ <main id="checkout-container">
+  <h1>Checkout</h1>
 
-    
-    <!-- Payment Form -->
-    <section id="payment-info">
-      <h2>Payment Information</h2>
-      <form>
-        <input type="text" id="card-name" placeholder="Name on Card" required>
-        <input type="text" id="card-number" placeholder="Card Number" required>
-        
-      </form>
-    </section>
+  <!-- Payment Form (Card details) -->
+  <section id="payment-info">
+    <h2>Payment Information</h2>
 
-    <!-- Order Summary -->
-    <section id="order-summary">
-      <h2>Order Summary</h2>
-      <ul id="checkout-items"></ul>
-      <p>Total Price: $<span id="checkout-total">0</span></p>
-      <button id="place-order-btn">Place Order</button>
-    </section>
-  </main>
+    <form>
+      <input type="text" id="card-name" placeholder="Name on Card" required>
+      <input type="text" id="card-number" placeholder="Card Number" required>
+    </form>
+  </section>
+
+
+  <section class="payment-section">
+    <h2>Select Payment Method</h2>
+<br>
+    <div class="payment-options">
+
+      <label class="payment-card">
+        <input type="radio" name="payment" value="card">
+        <div class="payment-info">
+          <h4>💳 Card Payment</h4>
+          <p>Pay with Visa / Mastercard</p>
+        </div>
+      </label>
+
+      <label class="payment-card">
+        <input type="radio" name="payment" value="momo">
+        <div class="payment-info">
+          <h4>📱 Mobile Money</h4>
+          <p>MTN / Vodafone / AirtelTigo</p>
+        </div>
+      </label>
+
+      <label class="payment-card">
+        <input type="radio" name="payment" value="delivery">
+        <div class="payment-info">
+          <h4>🚚 Pay on Delivery</h4>
+          <p>Cash when order arrives</p>
+        </div>
+      </label>
+
+    </div>
+    <br>
+  </section>
+
+  <!-- Order Summary -->
+  <section id="order-summary">
+    <h2>Order Summary</h2>
+    <ul id="checkout-items"></ul>
+    <p>Total Price: $<span id="checkout-total">0</span></p>
+
+    <button id="place-order-btn">Place Order</button>
+  </section>
+</main>
 
   <script src="index.js"></script>
 </body>

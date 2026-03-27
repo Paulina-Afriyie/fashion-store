@@ -198,6 +198,50 @@ header a:hover {
   background: #218838;
 }
 
+
+.payment-section {
+  margin-top: 25px;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.payment-card:hover {
+  border-color: #000;
+}
+
+.payment-card input {
+  margin-right: 12px;
+}
+
+.payment-info h4 {
+  margin: 0;
+}
+
+.payment-info p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* highlight selected */
+.payment-card input:checked + .payment-info {
+  font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   #checkout-container {
